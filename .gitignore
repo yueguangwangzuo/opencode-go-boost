@@ -1,0 +1,6 @@
+state.json
+chain.json
+node_modules/
+*.log
+.DS_Store
+*.swp

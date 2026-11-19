@@ -1,0 +1,144 @@
+{
+  "name": "local-edge-ip",
+  "version": "0.4.0",
+  "private": true,
+  "type": "module",
+  "main": "lib/index.js",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  },
+  "engines": {
+    "dsh": ">=0.2.1-rc.2 <0.3.0-0"
+  },
+  "dshGo": {
+    "v": 1,
+    "title": {
+      "zh": "opencode go 提速",
+      "en": "Go Boost"
+    },
+    "icon": "globe",
+    "contributes": {
+      "composer.strip": [
+        {
+          "id": "edge-strip",
+          "icon": "globe",
+          "panel": "edge"
+        }
+      ],
+      "composer.actions": [
+        {
+          "id": "edge-test",
+          "label": {
+            "zh": "换最快IP",
+            "en": "Best IP"
+          },
+          "icon": "refresh"
+        },
+        {
+          "id": "edge-chain",
+          "label": {
+            "zh": "全链路",
+            "en": "Chain"
+          },
+          "icon": "chart"
+        }
+      ],
+      "panels": [
+        {
+          "id": "edge",
+          "title": {
+            "zh": "边缘 IP 优选",
+            "en": "Edge IP"
+          },
+          "icon": "globe",
+          "placement": [
+            "session.tab",
+            "features"
+          ]
+        },
+        {
+          "id": "chain",
+          "title": {
+            "zh": "全链路延迟",
+            "en": "Full chain"
+          },
+          "icon": "chart",
+          "placement": [
+            "session.tab",
+            "features",
+            "chat.panel"
+          ]
+        },
+        {
+          "id": "speed",
+          "title": {
+            "zh": "模型速度",
+            "en": "Model speed"
+          },
+          "icon": "chart",
+          "placement": [
+            "session.tab",
+            "features"
+          ]
+        }
+      ],
+      "composer.tools": [
+        {
+          "id": "edge-speed",
+          "label": {
+            "zh": "模型测速",
+            "en": "Speed"
+          },
+          "icon": "chart",
+          "panel": "speed"
+        },
+        {
+          "id": "edge-rank",
+          "label": {
+            "zh": "链路排名",
+            "en": "IP rank"
+          },
+          "icon": "globe",
+          "panel": "edge"
+        }
+      ],
+      "message.actions": [
+        {
+          "id": "edge-speed-msg",
+          "label": {
+            "zh": "模型测速",
+            "en": "Model speed"
+          },
+          "icon": "chart"
+        }
+      ]
+    }
+  },
+  "description": "Make opencode go faster: pick the fastest Cloudflare edge IP for the opencode.ai inference route, and measure link latency separately from model speed. dsh-go native surfaces + Harness Web settings page.",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yueguangwangzuo/opencode-go-boost.git"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-go",
+    "plugin",
+    "opencode",
+    "cloudflare",
+    "edge-ip"
+  ]
+}
